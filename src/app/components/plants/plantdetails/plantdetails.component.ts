@@ -14,6 +14,7 @@ interface Banner {
 }
 
 @Component({
+
   selector: 'app-plantdetails',
   templateUrl: './plantdetails.component.html',
   styleUrls: ['./plantdetails.component.css']

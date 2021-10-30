@@ -1,27 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PlantsComponent } from './components/plants/plants.component';
-import { GuideComponent } from './components/guide/guide.component';
-import { PlantdetailsComponent } from './components/plants/plantdetails/plantdetails.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { CarouselModule } from 'ngx-owl-carousel-o'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlantsComponent,
-    GuideComponent,
-    PlantdetailsComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    CarouselModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
