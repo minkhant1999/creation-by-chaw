@@ -17,8 +17,8 @@ jobs:
         run: npx ng build
       - name: Set Config
         run: |
-          git config --global user.name "Min Khant"
-          git config --glboal user.email "minkhant16999@gmail.com"
+          git --global config user.name "Min Khant"
+          git --glboal config user.email "minkhant16999@gmail.com"
       - run: |
           cp server.js dist/server.js
           cd dist
