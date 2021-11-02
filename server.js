@@ -6,6 +6,7 @@ const app = e();
 
 app.use(e.static(PUBLIC_DIR));
 
+
 app.get('*', (req, res) => {
     res.sendFile(`${PUBLIC_DIR}/index.html`);
 });
