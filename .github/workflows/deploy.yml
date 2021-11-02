@@ -23,7 +23,7 @@ jobs:
           cp server.js dist/server.js
           cd dist
           git init
-          git remote add origin https://github.com/minkhant1999/aquatic-plants.git
+          git remote add origin https://minkhant1999:${{ secrets.GH_PAD_KEY }}@github.com/minkhant1999/aquatic-plants.git
           git checkout --orphan main
           npm init -y
           npm install express
