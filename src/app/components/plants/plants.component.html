@@ -2,244 +2,270 @@
     <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Plants</h2>
 
+
         <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            <div class="group relative">
+            <div class="group relative" *ngFor="let plant of plants">
                 <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/hygrophila_difformis.png" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    <img [src]="plant.image" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                 </div>
                 <div class="mt-4 flex justify-between">
                     <div>
                         <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_difformis">
-                                <span aria-hidden="true" class="absolute inset-0"></span> Hygrophila Difformis
+                            <a [routerLink]="['/plantdetails',plant.link]">
+                                <span aria-hidden="true"></span> {{plant.name}}
                             </a>
                         </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        <button class="mt-1 text-sm text-gray-500 cursor-pointer" (click)="addToCart(plant)">
+                            Add to cart
+                        </button>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1000 Ks</p>
+                    <p class="text-sm font-medium text-gray-900">{{plant.price.toLocaleString()}} Ks</p>
                 </div>
             </div>
 
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/hygrophila_corymbosa.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_corymbosa">
-                                <span aria-hidden="true" class="absolute inset-0"></span> Hygrophila Corymbosa
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
-                    </div>
-                    <p class="text-sm font-medium text-gray-900">1000 Ks</p>
-                </div>
-            </div>
 
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/Hygrophila polysperma.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila Polysperma
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+
+            <div class="hidden">
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/hygrophila_difformis.png" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1500 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/star grass.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Star Grass
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a routerLink="/plantdetails/hygrophila_difformis">
+                                    <span aria-hidden="true" class="absolute inset-0"></span> Hygrophila Difformis
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1000 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">2000 Ks</p>
                 </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/guppy grass.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Guppy Grass
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/hygrophila_corymbosa.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">800 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/Hygrophila lancea 'Araguaia'.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila lancea 'Araguaia'
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a routerLink="/plantdetails/hygrophila_corymbosa">
+                                    <span aria-hidden="true" class="absolute inset-0"></span> Hygrophila Corymbosa
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1000 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">2000 Ks</p>
                 </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/Hygrophila polysperma 'Rosanervig'.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila Polysperma 'Rosanervig'
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/Hygrophila polysperma.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1500 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/store-27b2a.appspot.com/o/aquatic-plants%2FCabomba%20Green.jpeg?alt=media&token=353eed4c-70c5-4f15-bb89-78323356fd08" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Cabomba Green
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila Polysperma
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1500 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1500 Ks</p>
                 </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/cabomba frucata.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Cabomba frucata
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/star grass.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">2000 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/hornwort.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Hornwort
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Star Grass
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">2000 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">800 Ks</p>
                 </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/large-492Eleocharis_parvula.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span> Eleocharis parvula
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/guppy grass.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1000 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/store-27b2a.appspot.com/o/aquatic-plants%2FAR_mini.jpeg?alt=media&token=0cd39b09-b104-4cad-9467-5f62da511f46" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span> Alternanthera reineckii 'Pink'
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">Medium</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Guppy Grass
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">800 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">2500 Ks</p>
                 </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/Ludwigia Repens.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Ludwigia Repens
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">Medium</p>
+
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/Hygrophila lancea 'Araguaia'.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                     </div>
-                    <p class="text-sm font-medium text-gray-900">2000 Ks</p>
-                </div>
-            </div>
-            <!-- More products... -->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="../../../assets/img/red_root_floaters.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a href="#">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Red root floaters
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila lancea 'Araguaia'
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">2000 Ks</p>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">1500 Ks</p>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/Hygrophila polysperma 'Rosanervig'.jpeg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Hygrophila Polysperma 'Rosanervig'
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1500 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/store-27b2a.appspot.com/o/aquatic-plants%2FCabomba%20Green.jpeg?alt=media&token=353eed4c-70c5-4f15-bb89-78323356fd08" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Cabomba Green
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1500 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/cabomba frucata.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Cabomba frucata
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">2000 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/hornwort.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Hornwort
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">800 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/large-492Eleocharis_parvula.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span> Eleocharis parvula
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1000 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/store-27b2a.appspot.com/o/aquatic-plants%2FAR_mini.jpeg?alt=media&token=0cd39b09-b104-4cad-9467-5f62da511f46" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span> Alternanthera reineckii 'Pink'
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Add To Cart</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">2500 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/Ludwigia Repens.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Ludwigia Repens
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">Medium</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">2000 Ks</p>
+                    </div>
+                </div>
+                <!-- More products... -->
+                <div class="group relative">
+                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <img src="../../../assets/img/red_root_floaters.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-gray-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>Red root floaters
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">{{difficulty}}</p>
+                        </div>
+                        <p class="text-sm font-medium text-gray-900">1500 Ks</p>
+                    </div>
                 </div>
             </div>
         </div>

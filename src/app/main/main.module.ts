@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -28,8 +29,10 @@ const routes: Routes = [
     FishComponent
   ],
   imports: [
+    CommonModule,
     RouterModule.forChild(routes),
-    CarouselModule],
+    CarouselModule
+  ],
   exports: [RouterModule]
 })
 export class MainModule { }

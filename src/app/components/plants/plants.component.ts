@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart.service';
 
-interface Plant {
+export interface Plant {
   name: string;
-  difficulty: string;
-  type: string;
-  price: string
+  image: string;
+  price: number;
+  link: string;
 }
 
 @Component({
@@ -16,9 +17,39 @@ export class PlantsComponent implements OnInit {
 
   difficulty = "Easy";
 
-  constructor() { }
+  plants: Plant[] = [
+    {
+      name: "Hygrophila Difformis",
+      price: 1000,
+      image: "assets/img/hygrophila_difformis.png",
+      link: "hygrophila_difformis"
+    },
+    {
+      name: "Hygrophila Corymbosa",
+      price: 1000,
+      image: "assets/img/hygrophila_corymbosa.jpeg",
+      link: "hygrophila_corymbosa"
+    },
+    {
+      name: "Hygrophila Polysperma",
+      price: 1500,
+      image: "assets/img/Hygrophila polysperma.jpeg",
+      link: "hygrophila_polysperma"
+    },
+    {
+      name: "Star Grass",
+      price: 2000,
+      image: "assets/img/star grass.jpg",
+      link: "star_grass"
+    }
+  ]
+
+  constructor(private cart: CartService) { }
 
   ngOnInit(): void {
   }
 
+  addToCart(product: Plant) {
+    this.cart.addProduct(product)
+  }
 }
