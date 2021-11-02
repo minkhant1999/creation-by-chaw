@@ -24,6 +24,7 @@ jobs:
           cd dist
           git init
           git remote add origin https://github.com/minkhant1999/aquatic-plants.git
+          git checkout --orphan main
           git add .
           git commit -m "initial"
-          git push origin production
+          git push origin main --force
