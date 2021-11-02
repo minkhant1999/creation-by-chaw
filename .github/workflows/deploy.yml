@@ -1,0 +1,29 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install Required Dependencies
+        run: npm install
+      - name: Build
+        run: npx ng build
+      - name: Set Config
+        run: |
+          git config --global user.name "Min Khant"
+          git config --glboal user.email "minkhant16999@gmail.com"
+      - run: |
+          cp server.js dist/server.js
+          cd dist
+          git init
+          git remote add origin https://github.com/minkhant1999/aquatic-plants.git
+          git add .
+          git commit -m "initial"
+          git push origin production
