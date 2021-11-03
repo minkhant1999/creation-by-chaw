@@ -26,7 +26,7 @@
 
                 <li class="text-sm">
                     <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
-                        Hygrophila Difformis
+                        {{name}}
                     </a>
                 </li>
             </ol>
@@ -35,34 +35,24 @@
 
         <!-- Image gallery -->
         <div class="grid mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-4 lg:gap-x-8">
-            <!-- 
-            <owl-carousel-o [options]="customOptions">
-                <ng-template carouselSlide *ngFor="let banner of banners">
+
+            <!-- <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let image of images">
                     <div>
-                        <img [src]="banner.src" [alt]="banner.alt" />
+                        <img [src]="image" class="w-full h-full object-center object-cover" />
                     </div>
                 </ng-template>
             </owl-carousel-o> -->
-            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="../../../../assets/img/Hygrophila_Difformis_1.png" class="w-full h-full object-center object-cover">
-            </div>
-            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="../../../../assets/img/hygrophila_difformis.png" class="w-full h-full object-center object-cover">
-            </div>
-            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="../../../../assets/img/Hygrophila_Difformis_view.png" class="w-full h-full object-center object-cover">
-            </div>
-            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="../../../../assets/img/Hygrophila_Difformis_1.png" class="w-full h-full object-center object-cover">
+
+            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block" *ngFor="let image of images">
+                <img [src]="image" class="w-full h-full object-center object-cover">
             </div>
         </div>
         <div class="grid mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
             <div class="ml-6 pt-6 mt-4 col-span-2">
-                <h1 class="font-bold ">Hygrophila Difformis</h1>
-                <p class="mt-6">Hygrophila difformis from Asia is beautiful and undemanding stem plant. Stems becomes 20-30 cm tall and 6-12 cm wide. A plant for beginners, which will help create balance in the aquarium from the start. Its rapid growth helps prevent
-                    algae because the plant absorbs a great number of nutrients from the water. The shortage of micronutrients leads to pale leaves, which may be an indication that the aquarium needs fertiliser. In large aquariums its lobed leaves can
-                    create a distinctive group. A bundle of stems or young plants gathered in an anchor. Remove the anchor and split into separate plants. Regarding stem plants, remove the leaves from the lowest 5 cm (2“). Remove any damaged leaves. Plant
-                    the individual plants with some distance into the bottom substrate. Roots will develop soon and the plant start growing.</p>
+                <h1 class="font-bold ">{{name}}</h1>
+                <p class="mt-6">{{body}}</p>
+                <p class="mt-6" *ngIf="error">{{ error }}</p>
             </div>
             <div class="ml-6 pt-6 mt-4 ">
                 <h1 class="font-bold">Plant Info</h1>
@@ -71,18 +61,13 @@
                         <tr>
                             <th class="text-left">Type:
                             </th>
-                            <td class="text-right">Stem</td>
-                        </tr>
-                        <tr>
-                            <th class="text-left">Origin:</th>
-                            <td class="text-right">Asia</td>
-
+                            <td class="text-right">{{type}}</td>
                         </tr>
                         <tr class="plantInfoHelpText" id="plant-spec-help-origin">
                         </tr>
                         <tr>
                             <th class="text-left">Growth rate:</th>
-                            <td class="text-right">Fast</td>
+                            <td class="text-right">{{rate}}</td>
 
                         </tr>
                         <tr class="plantInfoHelpText" id="plant-spec-help-growthrate">
