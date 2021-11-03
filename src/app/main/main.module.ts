@@ -10,6 +10,7 @@ import { PlantdetailsComponent } from '../components/plants/plantdetails/plantde
 import { PlantsComponent } from '../components/plants/plants.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { PlantService } from '../plant.service';
+import { MatButtonModule } from '@angular/material/button'
 
 
 const routes: Routes = [
@@ -28,13 +29,14 @@ const routes: Routes = [
     PlantdetailsComponent,
     DashboardComponent,
     ProductsComponent,
-    FishComponent
+    FishComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     CarouselModule,
     HttpClientModule,
+    MatButtonModule
   ],
   providers: [PlantService],
   exports: [RouterModule,]

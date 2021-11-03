@@ -13,7 +13,7 @@ export class PlantService {
   }
 
   getAllPlants() {
-    return this.http.get<Plant[]>(this.plantsUrl);
+    return this.http.get<any>(this.plantsUrl);
   }
 
   getPlantDetails(id: string) {

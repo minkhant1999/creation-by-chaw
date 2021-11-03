@@ -60,7 +60,7 @@ export class PlantdetailsComponent implements OnInit {
         }
         this.name = data.name;
         this.body = data.body;
-        this.images = data.images;
+        this.images = data.images || [];
         this.type = data.type;
         this.rate = data.rate;
         this.light = data.light;
