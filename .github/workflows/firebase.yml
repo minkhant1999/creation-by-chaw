@@ -18,4 +18,6 @@ jobs:
     - name: build
       run: npx ng build
     - name: Deploy
-      run: npx firebase deploy --project art-of-bloom --token ${{ secrets.FIREBASE_TOKEN }}
+      run: |
+        npm i -g firebase-tools
+        firebase deploy --project art-of-bloom --token ${{ secrets.FIREBASE_TOKEN }}
