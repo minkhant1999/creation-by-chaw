@@ -9,8 +9,11 @@ import { GuideComponent } from '../components/guide/guide.component';
 import { PlantdetailsComponent } from '../components/plants/plantdetails/plantdetails.component';
 import { PlantsComponent } from '../components/plants/plants.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { CheckoutComponent } from '../components/checkout/checkout.component';
+
 import { PlantService } from '../plant.service';
 import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon';
 
 
 const routes: Routes = [
@@ -19,6 +22,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'fishes', component: FishComponent },
   { path: 'guide', component: GuideComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'plantdetails/:name', component: PlantdetailsComponent }
 ];
 
@@ -30,13 +34,16 @@ const routes: Routes = [
     DashboardComponent,
     ProductsComponent,
     FishComponent,
+    CheckoutComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     CarouselModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [PlantService],
   exports: [RouterModule,]

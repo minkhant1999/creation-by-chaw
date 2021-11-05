@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/cart.service';
 import { Plant } from 'src/app/components/plants/plants.component';
 
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   cartOpen = false
   carts: any[] = []
   total = 0
-  constructor(private cart: CartService) { }
+  constructor(private cart: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cart.getCarts().subscribe(data => {
@@ -24,6 +25,11 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  open(link: string[]) {
+    this.navOpen = false;
+    return this.router.navigate(link)
+  }
+
   openNav() {
     this.navOpen = !this.navOpen
   }
@@ -31,6 +37,7 @@ export class NavbarComponent implements OnInit {
   openCart() {
     this.cartOpen = !this.cartOpen
   }
+
   removeFromCart(product: Plant) {
     this.cart.removeProduct(product)
   }

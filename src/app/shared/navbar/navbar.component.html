@@ -40,12 +40,12 @@
 
     <!-- mobile nav -->
     <div *ngIf="navOpen" class="px-2 pt-2 pb-3 space-y-1">
-        <a routerLink="" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-        <a routerLink="plants" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Plants</a>
-        <a routerLink="products" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
-        <a routerLink="fishes" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Fishes</a>
-        <a routerLink="guide" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Guide</a>
-        <a routerLink="child-a" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Forum</a>
+        <a (click)="open([])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+        <a (click)="open(['plants'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Plants</a>
+        <a (click)="open(['products'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
+        <a (click)="open(['fishes'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Fishes</a>
+        <a (click)="open(['guide'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Guide</a>
+        <a (click)="open([''])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Forum</a>
     </div>
 
 
@@ -65,13 +65,18 @@
 
             </div>
             <div>
-                <button mat-flat-button class="bg-transparent text-white" (click)="removeFromCart(product)">
-                    <mat-icon>mdi_close</mat-icon>
-                </button>
+                <button (click)="removeFromCart(product)" class="text-white text-2xl">&times;</button>
             </div>
         </div>
         <div>
-            Total: {{total.toLocaleString()}} Kyats
+            <div>
+                Total: {{total.toLocaleString()}} Kyats
+            </div>
+            <div class="mt-4 items-center">
+                <button mat-raised-button class=" bg-green-700">
+                    <a class="text-white" routerLink="checkout">Checkout</a>
+                </button>
+            </div>
         </div>
     </div>
 </nav>
