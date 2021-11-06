@@ -14,7 +14,7 @@ import { CheckoutComponent } from '../components/checkout/checkout.component';
 import { PlantService } from '../plant.service';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatFormFieldModule } from '@angular/material/form-field'
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -43,7 +43,8 @@ const routes: Routes = [
     CarouselModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [PlantService],
   exports: [RouterModule,]
