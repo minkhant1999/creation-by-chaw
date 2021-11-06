@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart.service';
 import { Plant } from 'src/app/components/plants/plants.component';
 
+export interface Orderform {
+  fullName: string;
+  phoneNumber: string;
+  address: string;
+  note: string;
+
+}
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -24,5 +32,8 @@ export class CheckoutComponent implements OnInit {
   }
   removeFromCart(product: Plant) {
     this.cart.removeProduct(product)
+  }
+  completeOrder() {
+
   }
 }
