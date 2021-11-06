@@ -1,17 +1,16 @@
 <div class="sm:text-left">
     <!-- Personal Information -->
-    <div class="shadow-lg p-4 bg-gray-700 max-h-100">
+    <div class="shadow-lg p-4 bg-gray-700 max-h-100 items-center justify-center  flex flex-col">
         <h2 class="text-white">Personal Information</h2>
         <div class="mt-2">
             <input type="text" placeholder="Fullname" class="rounded-md border-2 p-2 w-full">
             <input type="tel" placeholder="+95" class="rounded-md mt-4 p-2 w-full">
             <textarea class="rounded-md form-textarea mt-4 mb-4 block w-full p-2" rows="3" placeholder="Enter your address"></textarea>
-            <mat-label class="text-white">Note</mat-label>
-            <textarea class="rounded-md form-textarea mt-4 block w-full p-2" rows="3" placeholder=""></textarea>
+            <textarea class="rounded-md form-textarea mt-4 block w-full p-2" rows="3" placeholder="Enter your note"></textarea>
         </div>
     </div>
-    <!-- Order Summary -->
-    <div *ngIf="cartOpen" class="shadow-lg p-4 bg-gray-700 max-h-100">
+    <div class=" pt-2 pb-3 bg-gray-700 flex flex-col items-center justify-center space-y-4">
+        <h2 class="text-white">Order Summary</h2>
         <div *ngFor="let product of carts" class="flex items-center">
             <div class="mr-4">
                 <img [src]="product.image" class="w-14 h-16 object-cover rounded">
@@ -23,13 +22,21 @@
                 <p class="text-sm text-gray-400">
                     {{product.price.toLocaleString()}}
                 </p>
+
             </div>
             <div>
-                <button mat-flat-button class="bg-transparent text-white" (click)="removeFromCart(product)">
-                    <mat-icon>mdi_close</mat-icon>
+                <button (click)="removeFromCart(product)" class="text-white text-2xl">&times;</button>
+            </div>
+        </div>
+        <div>
+            <div>
+                Total: {{total.toLocaleString()}} Kyats
+            </div>
+            <div class="mt-4 items-center">
+                <button mat-raised-button class=" bg-green-700">
+                    <a class="text-white" routerLink="checkout">Complete Purchase</a>
                 </button>
             </div>
         </div>
     </div>
-
 </div>
