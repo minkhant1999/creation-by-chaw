@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/cart.service';
-import { PlantService } from 'src/app/plant.service';
+import { CartService } from 'src/app/services/cart.service';
+import { PlantService } from 'src/app/services/plant.service';
 
 export interface Plant {
   name: string;
@@ -20,7 +20,7 @@ export class PlantsComponent implements OnInit {
 
   plants: Plant[] = [];
 
-  constructor(private cart: CartService, private plant: PlantService) { }
+  constructor(private cart: CartService, private plant: PlantService,) { }
 
   ngOnInit(): void {
     this.reloadData();

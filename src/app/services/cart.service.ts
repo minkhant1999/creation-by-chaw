@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Plant } from './components/plants/plants.component';
-import { Fish } from './components/fish/fish.component';
+import { Plant } from '../components/plants/plants.component';
+import { Fish } from '../components/fish/fish.component';
 let initialPlantData: Plant[] = [];
 let initialFishData: Fish[] = [];
 
@@ -54,8 +54,13 @@ export class CartService {
       window.localStorage.setItem("__carts", JSON.stringify(this.products));
     }
   }
-  //Send notification to Admin
-  submitOrder() {
 
+  removeAll() {
+    this.products = [];
+    this.carts.next(this.products);
+
+    if ('localStorage' in window) {
+      window.localStorage.setItem("__carts", "[]");
+    }
   }
 }

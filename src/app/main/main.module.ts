@@ -11,11 +11,13 @@ import { PlantsComponent } from '../components/plants/plants.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { CheckoutComponent } from '../components/checkout/checkout.component';
 
-import { PlantService } from '../plant.service';
+import { PlantService } from '../services/plant.service';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { FishesService } from '../fishes.service';
+import { FishesService } from '../services/fishes.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutService } from '../services/checkout.service';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -42,12 +44,14 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     CarouselModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule
   ],
-  providers: [PlantService, FishesService],
-  exports: [RouterModule,]
+  providers: [PlantService, FishesService, CheckoutService],
+  exports: [RouterModule]
 })
 export class MainModule { }

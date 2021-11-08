@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OwlOptions } from "ngx-owl-carousel-o";
-import { PlantService } from 'src/app/plant.service';
+import { PlantService } from 'src/app/services/plant.service';
 
 interface Plant {
   name: string;

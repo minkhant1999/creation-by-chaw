@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FishesService } from 'src/app/fishes.service';
-import { CartService } from 'src/app/cart.service';
+import { FishesService } from 'src/app/services/fishes.service';
+import { CartService } from 'src/app/services/cart.service';
 
 export interface Fish {
   name: string;
