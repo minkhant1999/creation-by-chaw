@@ -7,7 +7,6 @@ export interface Orderform {
   phoneNumber: string;
   address: string;
   note: string;
-
 }
 
 @Component({

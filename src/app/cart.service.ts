@@ -44,4 +44,8 @@ export class CartService {
       window.localStorage.setItem("__carts", JSON.stringify(this.products));
     }
   }
+  //Send notification to Admin
+  submitOrder() {
+
+  }
 }
