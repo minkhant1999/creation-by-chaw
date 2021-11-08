@@ -17,6 +17,7 @@ export class CheckoutService {
   getOrderDetails() { }
 
   submitOrderDetails(order: Order) {
+    this.http.post('https://art-of-bloom.vercel.app/api/notify', { text: 'New Order Recieved!' })
     return this.http.post(this.requestUrl, order);
   }
 }
