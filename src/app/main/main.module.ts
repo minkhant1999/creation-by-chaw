@@ -15,6 +15,7 @@ import { PlantService } from '../plant.service';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { FishesService } from '../fishes.service';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -46,7 +47,7 @@ const routes: Routes = [
     MatIconModule,
     MatFormFieldModule
   ],
-  providers: [PlantService],
+  providers: [PlantService, FishesService],
   exports: [RouterModule,]
 })
 export class MainModule { }

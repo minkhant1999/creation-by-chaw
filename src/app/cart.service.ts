@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Plant } from './components/plants/plants.component';
-
-let initialData: Plant[] = [];
+import { Fish } from './components/fish/fish.component';
+let initialPlantData: Plant[] = [];
+let initialFishData: Fish[] = [];
 
 if ('localStorage' in window) {
   try {
     let storageData: any = window.localStorage.getItem('__carts');
     if (storageData) {
-      initialData = JSON.parse(storageData);
+      initialPlantData = JSON.parse(storageData);
     }
   } catch (e) {
     window.localStorage.clear();
@@ -19,8 +20,8 @@ if ('localStorage' in window) {
   providedIn: 'root'
 })
 export class CartService {
-  private products: Plant[] = initialData;
-
+  private products: Plant[] = initialPlantData;
+  private fishes: Fish[] = initialFishData;
   private carts = new BehaviorSubject<any[]>(this.products);
 
   addProduct(product: Plant) {
@@ -29,6 +30,15 @@ export class CartService {
 
     if ('localStorage' in window) {
       window.localStorage.setItem("__carts", JSON.stringify(this.products));
+    }
+  }
+
+  addFish(fish: Fish) {
+    this.fishes.push(fish);
+    this.carts.next(this.fishes);
+
+    if ('localStorage' in window) {
+      window.localStorage.setItem("__carts", JSON.stringify(this.fishes));
     }
   }
 

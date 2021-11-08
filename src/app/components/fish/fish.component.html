@@ -3,71 +3,24 @@
         <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Fishes</h2>
         <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             <!--Soil-->
-            <div class="group relative">
+            <div class="group relative" *ngFor="let fish of fishes">
                 <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="assets/fish/swordtail mickey mouse.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    <a [routerLink]="['/plantdetails',fish.link]">
+                        <img [src]="fish.image" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    </a>
                 </div>
                 <div class="mt-4 flex justify-between">
                     <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_difformis">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Swordtail Mickey Mouse
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">1 pc
+                        <a [routerLink]="['/fishdetails',fish.link]">
+                            <h3 class="text-sm text-gray-700">
+                                <span aria-hidden="true"></span> {{fish.name}}
+                            </h3>
+                        </a>
+                        <button mat-raised-button color="primary" class=" text-gray-500" (click)="addToCart(fish)">
+                            Add to cart
+                        </button>
                     </div>
-                    <p class="text-sm font-medium text-gray-900">500 Ks</p>
-                </div>
-            </div>
-            <!--Silica Sand-->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="assets/fish/Cardinal tetra.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_difformis">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Cardinal Tetra
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">1 Kg</p>
-                    </div>
-                    <p class="text-sm font-medium text-gray-900">1000 Ks</p>
-                </div>
-            </div>
-            <!--Brown River Sand-->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="assets/fish/serpae tetra.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_difformis">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Serpae Tetra
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">1 Kg</p>
-                    </div>
-                    <p class="text-sm font-medium text-gray-900">1000 Ks</p>
-                </div>
-            </div>
-            <!--Medium River Sand-->
-            <div class="group relative">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img src="assets/img/Medium-River-Sand.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="text-sm text-gray-700">
-                            <a routerLink="/plantdetails/hygrophila_difformis">
-                                <span aria-hidden="true" class="absolute inset-0"></span>Cleaned Medium River Sand
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-sm text-gray-500">1 Kg</p>
-                    </div>
-                    <p class="text-sm font-medium text-gray-900">500 Ks</p>
+                    <p class="text-sm font-medium text-gray-900">{{fish.price.toLocaleString()}} Ks</p>
                 </div>
             </div>
         </div>
