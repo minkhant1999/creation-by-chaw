@@ -11,13 +11,21 @@ export interface Order {
 })
 export class CheckoutService {
   private requestUrl = 'https://art-of-bloom-default-rtdb.firebaseio.com/orderDetails.json'
-
+  private notifyUrl = 'https://art-of-bloom.vercel.app/api/notify';
+  private getOrderDetailsUrl = 'https://art-of-bloom.vercel.app/api/orderDetails';
   constructor(private http: HttpClient) { }
 
-  getOrderDetails() { }
+  getOrderDetails(token: string) {
+    return this.http.get(this.getOrderDetailsUrl, {
+      params: { token }
+    });
+  }
 
   submitOrderDetails(order: Order) {
-    this.http.post('https://art-of-bloom.vercel.app/api/notify', { text: 'New Order Recieved!' })
     return this.http.post(this.requestUrl, order);
+  }
+
+  notifyNewOrder(text: string) {
+    return this.http.post(this.notifyUrl, { text });
   }
 }

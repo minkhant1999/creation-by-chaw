@@ -30,13 +30,10 @@ export class CheckoutComponent implements OnInit {
   constructor(private cart: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngOnInit(): void {
-
     this.cart.getCarts().subscribe(data => {
       this.carts = data;
       this.total = 0;
-
       let items: any = []
-
       this.carts.forEach(product => {
         this.total += product.price;
 
@@ -56,14 +53,15 @@ export class CheckoutComponent implements OnInit {
     this.cart.removeProduct(product)
   }
   completeOrder() {
-    // `Order Recieved from ${this.fullName}.\n\nTotal Items: ${this.items.length} (${this.total}KS.)`
-    this.checkoutService.submitOrderDetails({
+    const data = {
       address: this.address,
       fullName: this.fullName,
       phoneNumber: this.phoneNumber,
       note: this.note,
       items: this.items
-    }).subscribe(() => {
+    }
+    this.checkoutService.submitOrderDetails(data).subscribe(() => {
+      this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}. Total Amount: ${this.total} Kyats`).subscribe();
       this.cart.removeAll();
       this.router.navigate(['/plants'])
     })
