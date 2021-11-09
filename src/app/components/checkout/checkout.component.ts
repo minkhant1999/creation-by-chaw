@@ -60,8 +60,20 @@ export class CheckoutComponent implements OnInit {
       note: this.note,
       items: this.items
     }
+    if (!data.fullName) {
+      return alert("Please fill your name")
+    }
+    if (!data.phoneNumber) {
+      return alert("Please fill your phone number")
+    }
+    if (!data.address) {
+      return alert("Address Required")
+    }
+    if (!data.items.length) {
+      return alert("Please choose any products")
+    }
     this.checkoutService.submitOrderDetails(data).subscribe(() => {
-      this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}. Total Amount: ${this.total} Kyats`).subscribe();
+      this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}.\nPhone:${this.phoneNumber}\n\nTotal items:${this.carts.length} \nTotal Amount: ${this.total} Kyats`).subscribe();
       this.cart.removeAll();
       this.router.navigate(['/plants'])
     })
