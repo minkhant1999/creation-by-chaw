@@ -20,7 +20,7 @@ export class PlantsComponent implements OnInit {
 
   plants: Plant[] = [];
 
-  constructor(private cart: CartService, private plant: PlantService,) { }
+  constructor(private cart: CartService, private plant: PlantService) { }
 
   ngOnInit(): void {
     this.reloadData();
