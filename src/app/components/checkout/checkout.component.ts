@@ -73,7 +73,7 @@ export class CheckoutComponent implements OnInit {
       return alert("Please choose any products")
     }
     this.checkoutService.submitOrderDetails(data).subscribe(() => {
-      this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}.\nPhone:${this.phoneNumber}\n\nTotal items:${this.carts.length} \nTotal Amount: ${this.total} Kyats`).subscribe();
+      this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}.\nPhone:${this.phoneNumber}\n\nTotal items:${this.items.length} \nTotal Amount: ${this.total} Kyats`).subscribe();
       this.cart.removeAll();
       this.router.navigate(['/plants'])
     })

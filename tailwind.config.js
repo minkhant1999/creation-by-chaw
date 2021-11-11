@@ -6,16 +6,16 @@ module.exports = {
     prefix: '',
     mode: 'jit',
     purge: {
-      content: [
-        './src/**/*.{html,ts,css,scss,sass,less,styl}',
-      ]
+        content: [
+            './src/**/*.{html,ts,css,scss,sass,less,styl}',
+        ]
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
-      extend: {},
+        extend: {},
     },
     variants: {
-      extend: {},
+        extend: {},
     },
     plugins: [],
 };
