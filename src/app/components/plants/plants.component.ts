@@ -28,7 +28,6 @@ export class PlantsComponent implements OnInit {
 
   reloadData() {
     this.plant.getAllPlants().subscribe(data => {
-
       this.plants = Object.values(data);
     })
   }

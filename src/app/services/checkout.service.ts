@@ -22,7 +22,11 @@ export class CheckoutService {
   }
 
   submitOrderDetails(order: Order) {
-    return this.http.post(this.requestUrl, order);
+    return this.http.post(this.requestUrl, {
+      ...order,
+      createdAt: { '.sv': 'timestamp' },
+      updatedAt: { '.sv': 'timestamp' },
+    });
   }
 
   notifyNewOrder(text: string) {
