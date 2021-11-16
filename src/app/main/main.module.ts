@@ -14,7 +14,8 @@ import { CheckoutComponent } from '../components/checkout/checkout.component';
 import { PlantService } from '../services/plant.service';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FishesService } from '../services/fishes.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutService } from '../services/checkout.service';
@@ -49,7 +50,8 @@ const routes: Routes = [
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
   providers: [PlantService, FishesService, CheckoutService],
   exports: [RouterModule]

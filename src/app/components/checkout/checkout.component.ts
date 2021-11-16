@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Plant } from 'src/app/components/plants/plants.component';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Orderform {
   fullName: string;
@@ -26,8 +27,8 @@ export class CheckoutComponent implements OnInit {
   address = ''
   note = ''
   items: any[] = []
-
-  constructor(private cart: CartService, private checkoutService: CheckoutService, private router: Router) { }
+  isLoading = false;
+  constructor(private cart: CartService, private checkoutService: CheckoutService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.cart.getCarts().subscribe(data => {
@@ -72,10 +73,18 @@ export class CheckoutComponent implements OnInit {
     if (!data.items.length) {
       return alert("Please choose any products")
     }
+    this.isLoading = true
     this.checkoutService.submitOrderDetails(data).subscribe(() => {
       this.checkoutService.notifyNewOrder(`You have recieved an order from ${this.fullName}.\nPhone:${this.phoneNumber}\n\nTotal items:${this.items.length} \nTotal Amount: ${this.total} Kyats`).subscribe();
+      this.openSnackBar()
       this.cart.removeAll();
       this.router.navigate(['/plants'])
     })
+  }
+
+  openSnackBar() {
+    this.snackBar.open("Thank you for purchase", '', {
+      duration: 5000,
+    });
   }
 }

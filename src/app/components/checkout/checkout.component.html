@@ -33,7 +33,7 @@
                 Total: {{total.toLocaleString()}} Kyats
             </div>
             <div class="mt-4 items-center">
-                <button mat-raised-button class=" bg-green-700" (click)="completeOrder()">
+                <button mat-raised-button class=" bg-green-700" (click)="completeOrder()" [disabled]="isLoading">
                     <a class="text-white">Complete Order</a>
                 </button>
             </div>
