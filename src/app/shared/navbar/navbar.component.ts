@@ -12,17 +12,31 @@ export class NavbarComponent implements OnInit {
   navOpen = false
   cartOpen = false
   carts: any[] = []
-  total = 0
+  items: any[] = []
+  totalItems = 0
+  totalAmount = 0
   constructor(private cart: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cart.getCarts().subscribe(data => {
       this.carts = data;
-      this.total = 0;
+      this.totalItems = this.carts.length;
+      this.totalAmount = 0;
+      let items: any = []
       this.carts.forEach(product => {
-        this.total += product.price;
+        this.totalAmount += product.price;
+        let x = items.find((p: any) => p.link == product.link);
+        if (x) {
+          x.quantity += 1
+        } else {
+          items.push(product);
+          product.quantity = 1;
+        }
+        this.items = items
+        this.carts = items
       })
     })
+
   }
 
   open(link: string[]) {
@@ -39,6 +53,6 @@ export class NavbarComponent implements OnInit {
   }
 
   removeFromCart(product: Plant) {
-    this.cart.removeProduct(product)
+    this.cart.removeProduct(product);
   }
 }

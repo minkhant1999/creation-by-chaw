@@ -15,7 +15,6 @@ export class PlantService {
   getAllPlants() {
     return this.http.get<any>(this.plantsUrl);
   }
-
   getPlantDetails(id: string) {
     return this.http.get<any>(this.plantDetailsUrl + '/' + id + '.json');
   }

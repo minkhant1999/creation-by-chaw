@@ -27,8 +27,9 @@ export class PlantsComponent implements OnInit {
   }
 
   reloadData() {
-    this.plant.getAllPlants().subscribe(data => {
-      this.plants = Object.values(data);
+    this.plant.getAllPlants().subscribe((data: any) => {
+      let plants: Plant[] = Object.values(data)
+      this.plants = plants.reverse();
     })
   }
 

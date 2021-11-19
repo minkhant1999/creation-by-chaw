@@ -1,41 +1,62 @@
-<div class="sm:text-left">
-    <!-- Personal Information -->
-    <div class="shadow-lg p-4 bg-gray-700 max-h-100 items-center justify-center  flex flex-col">
-        <h2 class="text-white">Personal Information</h2>
-        <div class="mt-2">
-            <input type="text" placeholder="Fullname" class="rounded-md border-2 p-2 w-full" [(ngModel)]="fullName">
-            <input type="tel" placeholder="+959 XXXXXXXXX" class="rounded-md mt-4 p-2 w-full" [(ngModel)]="phoneNumber">
-            <textarea class="rounded-md form-textarea mt-4 mb-4 block w-full p-2" rows="3" placeholder="Enter your address" [(ngModel)]="address"></textarea>
-            <textarea class="rounded-md form-textarea mt-4 block w-full p-2" rows="3" placeholder="Enter your note" [(ngModel)]="note"></textarea>
-        </div>
-    </div>
-    <div class=" pt-2 pb-3 bg-gray-700 flex flex-col items-center justify-center space-y-4">
-        <h2 class="text-white">Order Summary</h2>
-        <div *ngFor="let product of carts" class="flex items-center">
-            <div class="mr-4">
-                <img [src]="product.image" class="w-14 h-16 object-cover rounded">
-            </div>
-            <div class="w-44">
-                <p class="font-medium">
-                    {{product.name}}
-                </p>
-                <p class="text-sm text-gray-400">
-                    {{product.price.toLocaleString()}} <span class="text-gray-200">&times;{{product.quantity}}</span>
-                </p>
+<div class="container mx-auto my-10">
+    <div class="mx-5">
+        <div class="flex flex-col-reverse lg:flex-row shadow-lg rounded overflow-hidden border border-gray-200">
+            <!-- product summary -->
+            <div class="py-4 bg-gray-700 text-white flex flex-col items-center justify-center space-y-4 flex-1">
+                <h2 class="font-semibold">Order Summary</h2>
+                <div *ngFor="let product of carts" class="flex items-center">
+                    <div class="mr-4">
+                        <img [src]="product.image" class="w-14 h-16 object-cover rounded">
+                    </div>
+                    <div class="w-44">
+                        <p class="font-medium">
+                            {{product.name}}
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            {{product.price.toLocaleString()}} <span class="text-gray-200">&times;{{product.quantity}}</span>
+                        </p>
 
+                    </div>
+                    <div>
+                        <button (click)="removeFromCart(product)" class="text-white text-2xl">&times;</button>
+                    </div>
+                </div>
+                <div class="w-80 border-gray-50/60 border-b"></div>
+                <div class=" font-bold text-lg">
+                    <div>
+                        Total: {{total.toLocaleString()}} Kyats
+                    </div>
+
+                </div>
             </div>
-            <div>
-                <button (click)="removeFromCart(product)" class="text-white text-2xl">&times;</button>
-            </div>
-        </div>
-        <div>
-            <div>
-                Total: {{total.toLocaleString()}} Kyats
-            </div>
-            <div class="mt-4 items-center">
-                <button mat-raised-button class=" bg-green-700" (click)="completeOrder()" [disabled]="isLoading">
-                    <a class="text-white">Complete Order</a>
-                </button>
+
+            <!-- Personal Information -->
+            <div class="p-8  max-h-100 items-center justify-center  flex flex-col flex-1">
+                <h2 class="font-semibold text-lg">Personal Information</h2>
+                <div class="mt-2">
+                    <mat-form-field class="w-full">
+                        <mat-label>Full Name <span class="font-mono text-red-400">*</span></mat-label>
+                        <input type="text" matInput [(ngModel)]="fullName">
+                    </mat-form-field>
+                    <mat-form-field class="w-full">
+                        <mat-label>Phone Number <span class="font-mono text-red-400">*</span></mat-label>
+                        <input type="tel" matInput [(ngModel)]="phoneNumber">
+                    </mat-form-field>
+                    <mat-form-field class="w-full">
+                        <mat-label>Shipping Address <span class="font-mono text-red-400">*</span></mat-label>
+                        <textarea matInput [(ngModel)]="address"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="w-full">
+                        <mat-label>Additional Note </mat-label>
+                        <textarea matInput [(ngModel)]="note"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="mt-4 items-center w-full">
+                    <button mat-raised-button class=" bg-green-700 w-full" (click)="completeOrder()" [disabled]="isLoading">
+                        <a class="text-white">Complete Order</a>
+                    </button>
+                </div>
+                <div class="pb-5"></div>
             </div>
         </div>
     </div>

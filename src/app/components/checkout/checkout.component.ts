@@ -37,7 +37,6 @@ export class CheckoutComponent implements OnInit {
       let items: any = []
       this.carts.forEach(product => {
         this.total += product.price;
-
         let x = items.find((p: any) => p.link == product.link);
         if (x) {
           x.quantity += 1

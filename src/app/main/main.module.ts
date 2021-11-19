@@ -15,6 +15,7 @@ import { PlantService } from '../services/plant.service';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FishesService } from '../services/fishes.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -51,7 +52,8 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule
   ],
   providers: [PlantService, FishesService, CheckoutService],
   exports: [RouterModule]
