@@ -20,6 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FishesService } from '../services/fishes.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutService } from '../services/checkout.service';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -39,8 +41,8 @@ const routes: Routes = [
     DashboardComponent,
     ProductsComponent,
     FishComponent,
-    CheckoutComponent
-
+    CheckoutComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ const routes: Routes = [
     MatIconModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatInputModule
+    MatBadgeModule,
+    MatInputModule,
   ],
   providers: [PlantService, FishesService, CheckoutService],
   exports: [RouterModule]

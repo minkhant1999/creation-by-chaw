@@ -7,12 +7,20 @@
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
-                        <a routerLink="" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                        <a routerLink="plants" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Plants</a>
-                        <a routerLink="products" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
-                        <a routerLink="fishes" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fishes</a>
-                        <a routerLink="guide" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Guide</a>
-                        <a routerLink="child-a" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Forum</a>
+                        <a mat-button routerLink="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a mat-button (click)="openProductTab()" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                        <a mat-button target="_blank" rel="noreferrer,noopener" href="https://tropica.com/en/guide/" class=" text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            <div class="flex items-center">
+                                Guide
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path
+                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path
+                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                            </div>
+                        </a>
+                        <a mat-button routerLink="/child-a" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Forum</a>
                     </div>
                 </div>
                 <div class="ml-6 sm:hidden cursor-pointer" (click)="openNav()">
@@ -36,19 +44,31 @@
                 </button>
             </div>
         </div>
+
+        <!-- mobile nav -->
+        <div *ngIf="navOpen" class="px-2 pt-2 pb-3 space-y-1">
+            <a mat-button (click)="open(['/'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+            <a mat-button (click)="openProductTab()" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
+            <a mat-button target="_blank" rel="noreferrer,noopener" href="https://tropica.com/en/guide/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Guide</a>
+            <a mat-button (click)="open(['/child-a'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Forum</a>
+        </div>
+        <!-- start of tab -->
+        <div *ngIf="tabOpen">
+            <div class="flex flex-col mx-5 md:flex-row text-gray-300 pb-3">
+                <a mat-button (click)="open(['plants'])" class="block py-5 px-4">
+                    Plants
+                </a>
+                <a mat-button (click)="open(['fishes'])" class="block py-5 px-4">
+                    Fishes
+                </a>
+                <a mat-button (click)="open(['products'])" class="block py-5 px-4">
+                    Other
+                </a>
+            </div>
+        </div>
+        <!-- end of tab -->
     </div>
     <!-- Test -->
-
-    <!-- mobile nav -->
-    <div *ngIf="navOpen" class="px-2 pt-2 pb-3 space-y-1">
-        <a (click)="open([])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-        <a (click)="open(['plants'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Plants</a>
-        <a (click)="open(['products'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
-        <a (click)="open(['fishes'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Fishes</a>
-        <a (click)="open(['guide'])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Guide</a>
-        <a (click)="open([''])" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Forum</a>
-    </div>
-
 
     <!-- shopping carts -->
     <div *ngIf="cartOpen" class=" pt-2 pb-3 text-white flex flex-col items-center justify-center space-y-4">
@@ -75,7 +95,7 @@
             </div>
             <div class="mt-4 items-center">
                 <button mat-raised-button class=" bg-green-700">
-                    <a class="text-white" routerLink="checkout" (click)='this.cartOpen=false'>Checkout</a>
+                    <a class="text-white" routerLink="/checkout" (click)='this.cartOpen=false'>Checkout</a>
                 </button>
             </div>
         </div>
