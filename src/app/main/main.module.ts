@@ -22,10 +22,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutService } from '../services/checkout.service';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { AirPlantsComponent } from '../components/air-plants/air-plants.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'plants', component: PlantsComponent },
+  { path: 'aquatic-plants', component: PlantsComponent },
+  { path: 'air-plants', component: AirPlantsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'fishes', component: FishComponent },
   { path: 'guide', component: GuideComponent },
@@ -43,6 +45,7 @@ const routes: Routes = [
     FishComponent,
     CheckoutComponent,
     NavbarComponent,
+    AirPlantsComponent
   ],
   imports: [
     CommonModule,

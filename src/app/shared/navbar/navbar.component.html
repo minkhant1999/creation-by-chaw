@@ -55,8 +55,11 @@
         <!-- start of tab -->
         <div *ngIf="tabOpen">
             <div class="flex flex-col mx-5 md:flex-row text-gray-300 pb-3">
-                <a mat-button (click)="open(['plants'])" class="block py-5 px-4">
-                    Plants
+                <a mat-button (click)="open(['aquatic-plants'])" class="block py-5 px-4">
+                    Aquatic Plants
+                </a>
+                <a mat-button (click)="open(['air-plants'])" class="block py-5 px-4">
+                    Terrestrial Plants
                 </a>
                 <a mat-button (click)="open(['fishes'])" class="block py-5 px-4">
                     Fishes
