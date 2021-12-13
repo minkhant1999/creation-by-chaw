@@ -80,7 +80,7 @@ export class CheckoutComponent implements OnInit {
       this.openSnackBar()
       this.cart.removeAll();
       this.loading.complete();
-      this.router.navigate(['/plants'])
+      this.router.navigate(['/aquatic-plants'])
     })
   }
 
