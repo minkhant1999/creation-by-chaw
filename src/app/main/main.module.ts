@@ -12,7 +12,7 @@ import { ProductsComponent } from '../components/products/products.component';
 import { CheckoutComponent } from '../components/checkout/checkout.component';
 
 import { PlantService } from '../services/plant.service';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -26,13 +26,13 @@ import { AirPlantsComponent } from '../components/air-plants/air-plants.componen
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'aquatic-plants', component: PlantsComponent },
+  { path: 'plants', component: PlantsComponent },
   { path: 'air-plants', component: AirPlantsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'fishes', component: FishComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'plantdetails/:name', component: PlantdetailsComponent }
+  { path: 'plantdetails/:name', component: PlantdetailsComponent },
 ];
 
 @NgModule({
@@ -45,7 +45,7 @@ const routes: Routes = [
     FishComponent,
     CheckoutComponent,
     NavbarComponent,
-    AirPlantsComponent
+    AirPlantsComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +62,6 @@ const routes: Routes = [
     MatInputModule,
   ],
   providers: [PlantService, FishesService, CheckoutService],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MainModule { }
+export class MainModule {}
