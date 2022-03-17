@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import initializeFirebaseApp from './firebase';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,9 +20,9 @@ import initializeFirebaseApp from './firebase';
     {
       useFactory: initializeFirebaseApp,
       provide: APP_INITIALIZER,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

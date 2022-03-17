@@ -23,16 +23,20 @@ import { CheckoutService } from '../services/checkout.service';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AirPlantsComponent } from '../components/air-plants/air-plants.component';
+import { PotsComponent } from '../components/pots/pots.component';
+import { PotDetailsComponent } from '../components/pots/pot-details/pot-details.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'plants', component: PlantsComponent },
+  { path: 'plantdetails/:name', component: PlantdetailsComponent },
   { path: 'air-plants', component: AirPlantsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'fishes', component: FishComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'plantdetails/:name', component: PlantdetailsComponent },
+  { path: 'pots', component: PotsComponent },
+  { path: 'potdetails/:name', component: PotDetailsComponent },
 ];
 
 @NgModule({
@@ -46,6 +50,8 @@ const routes: Routes = [
     CheckoutComponent,
     NavbarComponent,
     AirPlantsComponent,
+    PotsComponent,
+    PotDetailsComponent,
   ],
   imports: [
     CommonModule,
